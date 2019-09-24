@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "babel-watch .",
     "start": "babel-node ."
   },
@@ -21,13 +20,13 @@
   "homepage": "https://github.com/ConnectProject/mavoix-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "parse-server": "^3.5.0"
+    "parse-server": "^3.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.0",
-    "@babel/node": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-watch": "^7.0.0",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.1.0"
   }
 }

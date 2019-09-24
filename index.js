@@ -1,4 +1,5 @@
 import express from 'express'
+import http from 'http'
 import { ParseServer } from 'parse-server'
 
 import { checkEnv } from './utils'
@@ -19,11 +20,16 @@ const parseServer = new ParseServer({
 	masterKey: process.env.MASTER_KEY,
 	javascriptKey: process.env.JAVASCRIPT_KEY,
 	fileKey: process.env.FILE_KEY,
-	serverURL: `http://localhost:${LISTEN_PORT}/`
+	serverURL: `http://localhost:${LISTEN_PORT}/`,
+	liveQuery: {
+		classNames: ['Tab', 'TabItem']
+	}
 })
 
 app.use('/', parseServer)
 
-app.listen(LISTEN_PORT, () => {
-	console.log(`Server is listening on http://localhost:${LISTEN_PORT}`)
-})
+const server = http.createServer(app)
+
+server.listen(LISTEN_PORT)
+
+ParseServer.createLiveQueryServer(server)
